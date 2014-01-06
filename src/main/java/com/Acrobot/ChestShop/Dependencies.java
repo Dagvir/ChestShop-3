@@ -5,6 +5,8 @@ import com.Acrobot.ChestShop.Configuration.Properties;
 import com.Acrobot.ChestShop.Listeners.Economy.Plugins.RegisterListener;
 import com.Acrobot.ChestShop.Listeners.Economy.Plugins.VaultListener;
 import com.Acrobot.ChestShop.Plugins.*;
+import com.octagami.chestclaim.ChestClaim;
+
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -108,6 +110,16 @@ public class Dependencies {
             case OddItem:
                 MaterialUtil.Odd.initialize();
                 break;
+                
+            case ChestClaim:
+                ChestClaim chestClaim = ChestClaim.getInstance();
+
+                if (chestClaim == null) {
+                    return;
+                }
+
+                listener = new ChestClaimSender();
+                break;
         }
 
         if (listener != null) {
@@ -126,6 +138,8 @@ public class Dependencies {
         Residence,
 
         OddItem,
+        
+        ChestClaim,
 
         WorldGuard,
 

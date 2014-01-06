@@ -3,6 +3,7 @@ package com.Acrobot.ChestShop;
 import com.Acrobot.Breeze.Configuration.Configuration;
 import com.Acrobot.ChestShop.Commands.Give;
 import com.Acrobot.ChestShop.Commands.ItemInfo;
+import com.Acrobot.ChestShop.Commands.Toggle;
 import com.Acrobot.ChestShop.Commands.Version;
 import com.Acrobot.ChestShop.Configuration.Messages;
 import com.Acrobot.ChestShop.Configuration.Properties;
@@ -46,7 +47,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.Metrics;
+//import org.mcstats.Metrics;
 
 import java.io.File;
 import java.io.IOException;
@@ -119,6 +120,7 @@ public class ChestShop extends JavaPlugin {
         getCommand("iteminfo").setExecutor(new ItemInfo());
         getCommand("csVersion").setExecutor(new Version());
         getCommand("csGive").setExecutor(new Give());
+        getCommand("cstoggle").setExecutor(new Toggle());
 
         startStatistics();
     }
@@ -271,11 +273,11 @@ public class ChestShop extends JavaPlugin {
     }
 
     private void startStatistics() {
-        try {
-            new Metrics(this).start();
-        } catch (IOException ex) {
-            ChestShop.getBukkitLogger().severe("There was an error while submitting statistics.");
-        }
+//        try {
+//            new Metrics(this).start();
+//        } catch (IOException ex) {
+//            ChestShop.getBukkitLogger().severe("There was an error while submitting statistics.");
+//        }
     }
 
     /////////////////////   DATABASE    STUFF      ////////////////////////////////

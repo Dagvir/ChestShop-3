@@ -2,6 +2,7 @@ package com.Acrobot.ChestShop.Listeners.PostTransaction;
 
 import com.Acrobot.Breeze.Utils.InventoryUtil;
 import com.Acrobot.Breeze.Utils.MaterialUtil;
+import com.Acrobot.ChestShop.Commands.Toggle;
 import com.Acrobot.ChestShop.Configuration.Messages;
 import com.Acrobot.ChestShop.Configuration.Properties;
 import com.Acrobot.ChestShop.Economy.Economy;
@@ -93,7 +94,7 @@ public class TransactionMessageSender implements Listener {
 
         Player player = Bukkit.getPlayerExact(owner);
 
-        if (player != null) {
+        if (player != null && !Toggle.isIgnoringTransactionMessages(player)) {
             player.sendMessage(message);
         }
     }
