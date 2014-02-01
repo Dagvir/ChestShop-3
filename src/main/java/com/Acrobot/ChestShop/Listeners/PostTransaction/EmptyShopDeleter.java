@@ -42,14 +42,13 @@ public class EmptyShopDeleter implements Listener {
         }
 
         sign.getBlock().setType(Material.AIR);
+        ownerInventory.addItem(new ItemStack(Material.SIGN, 1));
 
         if (Properties.REMOVE_EMPTY_CHESTS && !ChestShopSign.isAdminShop(ownerInventory)) {
             Event removeEvent = new EmptyShopRemovedEvent(sign, connectedChest, event.getOwner().getName(), event.getSign().getLine(ITEM_LINE));
             Bukkit.getPluginManager().callEvent(removeEvent);
             connectedChest.getBlock().setType(Material.AIR);
-        } else {
-            ownerInventory.addItem(new ItemStack(Material.SIGN, 1));
-        }
+        } 
         
         event.getClient().sendMessage(Messages.prefix(Messages.SHOP_EMPTY));
         

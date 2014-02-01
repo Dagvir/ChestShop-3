@@ -35,7 +35,7 @@ public class ChestClaimSender implements Listener {
 		    claimLabel = EMPTY_LABEL + event.getItem();
 		}
 
-		ClaimUtil.sendContainer("ChestShop", event.getOwner(), chest.getBlock(), chest.getInventory(), claimLabel);
+		ClaimUtil.sendContainer("ChestShop", event.getOwner(), chest.getBlock(), null, chest.getInventory(), claimLabel);
 	}
 
 }
