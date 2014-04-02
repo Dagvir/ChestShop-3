@@ -39,6 +39,7 @@ import com.Acrobot.ChestShop.Utils.uName;
 import com.avaje.ebean.EbeanServer;
 import com.lennardf1989.bukkitex.Database;
 import com.nijikokun.register.payment.forChestShop.Methods;
+import net.gravitydevelopment.updater.Updater;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -123,6 +124,7 @@ public class ChestShop extends JavaPlugin {
         getCommand("cstoggle").setExecutor(new Toggle());
 
         startStatistics();
+        startUpdater();
     }
 
     public static File loadFile(String string) {
@@ -278,6 +280,16 @@ public class ChestShop extends JavaPlugin {
 //        } catch (IOException ex) {
 //            ChestShop.getBukkitLogger().severe("There was an error while submitting statistics.");
 //        }
+    }
+
+    private static final int PROJECT_BUKKITDEV_ID = 31263;
+
+    private void startUpdater() {
+        if (Properties.TURN_OFF_UPDATES) {
+            return;
+        }
+
+        new Updater(this, PROJECT_BUKKITDEV_ID, this.getFile(), Updater.UpdateType.DEFAULT, true);
     }
 
     /////////////////////   DATABASE    STUFF      ////////////////////////////////
