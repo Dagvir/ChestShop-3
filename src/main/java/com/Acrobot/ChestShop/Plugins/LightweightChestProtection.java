@@ -4,8 +4,8 @@ import com.Acrobot.ChestShop.Configuration.Messages;
 import com.Acrobot.ChestShop.Configuration.Properties;
 import com.Acrobot.ChestShop.Events.Protection.ProtectBlockEvent;
 import com.Acrobot.ChestShop.Events.Protection.ProtectionCheckEvent;
+import com.Acrobot.ChestShop.Events.EmptyShopRemovedEvent;
 import com.Acrobot.ChestShop.Events.ShopCreatedEvent;
-import com.Acrobot.ChestShop.Events.ShopDestroyedEvent;
 import com.Acrobot.ChestShop.Security;
 import com.Acrobot.ChestShop.UUIDs.NameManager;
 import com.griefcraft.lwc.LWC;
@@ -31,7 +31,7 @@ public class LightweightChestProtection implements Listener {
     }
 
     @EventHandler
-    public static void onShopCreation(ShopCreatedEvent event) {
+    public void onShopCreation(ShopCreatedEvent event) {
         Player player = event.getPlayer();
         Sign sign = event.getSign();
         Chest connectedChest = event.getChest();
@@ -108,7 +108,7 @@ public class LightweightChestProtection implements Listener {
     }
 
     @EventHandler
-    public void onShopRemove(ShopDestroyedEvent event) {
+    public void onEmptyShopRemoved(EmptyShopRemovedEvent event) {
         Protection signProtection = lwc.findProtection(event.getSign().getBlock());
 
         if (signProtection != null) {

@@ -35,6 +35,10 @@ public class Messages {
     public static String NOT_ENOUGH_STOCK_IN_YOUR_SHOP = "Your %material shop is out of stock!";
 
     @PrecededBySpace
+    public static String SHOP_EMPTY = "This shop is now empty or depleted";
+    public static String YOUR_SHOP_EMPTY = "Your %material shop is now empty or depleted";
+    
+    @PrecededBySpace
     public static String YOU_BOUGHT_FROM_SHOP = "You bought %item from %owner for %price.";
     public static String SOMEBODY_BOUGHT_FROM_YOUR_SHOP = "%buyer bought %item for %price from you.";
 
